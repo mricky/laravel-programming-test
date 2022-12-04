@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\GuestMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','HomeController@home');
 
 Route::view('/template','template');
+
+Route::group(['prefix'=>'login'], function(){
+    Route::get('/','UserController@login')->middleware(['guest']);
+    Route::post('/','UserController@doLogin')->middleware(['guest']);
+  
+});
+Route::post('/logout','UserController@doLogout')->middleware(['member']);
