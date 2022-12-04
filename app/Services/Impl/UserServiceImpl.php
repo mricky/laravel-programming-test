@@ -5,19 +5,15 @@ use App\Services\UserService;
 
 class UserServiceImpl implements UserService {
     
-    protected $user = [
-        "admin" => "rahasia"
-    ];
+    public $user = "admin";
+    public $password = "rahasia";
 
     public function login(string $user, string $password) : bool {
 
-        if(!isset($this->users[$user])){
-            return false;
-        }
-        
-        $coorectPassword = $this->users[$user];
+      
+        $correct = $this->password;
        
-        return $password == $coorectPassword;
+        return $password == $correct;
 
     }
 }

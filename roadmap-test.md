@@ -17,5 +17,13 @@ Steps
 6. Integrate to View
 8. Manual Testing
 
+DevOps
+- pipeline deploy ok
+- unitesting ok
+- pull main ok
 
 
+
+CMD Debug
+ php artisan tinker
+ $service = new App\Services\Impl\UserServiceImpl;
