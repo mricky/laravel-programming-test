@@ -11,10 +11,13 @@ use Illuminate\Support\ServiceProvider;
 class UserServiceProvider extends ServiceProvider implements DeferrableProvider
 {
 
-    public $singletons = [
-        UserService::class => UserServiceImpl::class
-    ];
-  
+    // public $singletons = [
+    //     UserService::class => UserServiceImpl::class
+    // ];
+    public function boot()
+    {
+        //
+    }
     /**
      * Register services.
      *
@@ -22,22 +25,15 @@ class UserServiceProvider extends ServiceProvider implements DeferrableProvider
      */
     public function register()
     {
-    //    $this->app->singleton('user',function ($app){
-    //       return new UserService();
-    //    });
+       $this->app->singleton('App\Services\UserService',function ($app){
+          return new UserServiceImpl();
+       });
     }
 
-    public function provides() : array
-    {
-        return [IUserService::class];
-    }
     /**
      * Bootstrap services.
      *
      * @return void
      */
-    public function boot()
-    {
-        //
-    }
+   
 }
