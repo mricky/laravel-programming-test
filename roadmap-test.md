@@ -25,5 +25,6 @@ DevOps
 
 
 CMD Debug
+ vendor/bin/phpunit
  php artisan tinker
  $service = new App\Services\Impl\UserServiceImpl;
