@@ -26,7 +26,7 @@ class UserServiceTest extends TestCase
     public function testLoginSuccess(){
       
         
-        self::assertTrue(  $this->userService->login('admin',"rahasia"));
+        self::assertTrue($this->userService->login('admin',"rahasia"));
     }
     public function testLoginFailed(){
     

@@ -24,3 +24,11 @@ Route::group(['prefix'=>'login'], function(){
   
 });
 Route::post('/logout','UserController@doLogout')->middleware(['member']);
+
+Route::group(['prefix'=>'cartlist'], function(){
+    Route::GET('/','CartController@cartList')->middleware(['member']);
+    Route::POST('/add','CartController@updatePlus')->middleware(['member']);
+    Route::POST('/minus','CartController@updateMinus')->middleware(['member']);
+    Route::POST('/delete','CartController@removeDetail')->middleware(['member']);
+    Route::POST('/discount','CartController@usingDiscount')->middleware(['member']);
+});
